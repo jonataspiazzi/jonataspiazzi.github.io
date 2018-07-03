@@ -3,23 +3,33 @@ function Interaction() {
 }
 
 function UpdateValues(values) {
-	var json = JSON.parse(values);
-
-	document.body.innerHTML = showObject(json) + '<img src="img.png" />';
-}
-
-function showObject(obj, prefix) {
-
-	var text = "";
-
-	for (var prop in obj) {
-		if (typeof obj[prop] === 'object') {
-			text += showObject(obj[prop], prefix ? prefix + '.' + prop : prop);
-		}
-		else {
-			text += `${prefix ? `${prefix}.` : ""}${prop} = ${obj[prop]} <br/>`;
-		}
-	}
+	var obj = JSON.parse(values);
 	
-	return text;
+	var html = JSON.stringify(obj, null, 2);
+	
+	document.body.appendChild(document.createElement('pre')).innerHTML = syntaxHighlight(html);
 }
+
+function syntaxHighlight(json) {
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        var cls = 'number';
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'key';
+            } else {
+                cls = 'string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'boolean';
+        } else if (/null/.test(match)) {
+            cls = 'null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function (event) {
+	UpdateValues(JSON.stringify({oi:"hello", como: "how"}));	
+});
+
