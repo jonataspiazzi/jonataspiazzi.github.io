@@ -28,8 +28,3 @@ function syntaxHighlight(json) {
         return '<span class="' + cls + '">' + match + '</span>';
     });
 }
-
-document.addEventListener("DOMContentLoaded", function (event) {
-	UpdateValues(JSON.stringify({oi:"hello", como: "how"}));	
-});
-
