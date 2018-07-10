@@ -39,15 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#cancel").addEventListener("click", function () {
         Interaction(false);
     });
-
-    UpdateValues(JSON.stringify({
-        teste: "info", 
-        ok: true,
-        version: 10,
-        advisorAmount: 25,
-        assetId: 514,
-        negotiationPeriodId: 1248
-    }));
 });
 
 function Interaction(state) {
