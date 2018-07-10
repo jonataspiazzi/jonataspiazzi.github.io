@@ -3,11 +3,12 @@ function Interaction() {
 }
 
 function UpdateValues(values) {
-	var obj = JSON.parse(values);
-	
-	var html = JSON.stringify(obj, null, 2);
-	
-	document.body.appendChild(document.createElement('pre')).innerHTML = syntaxHighlight(html);
+    var obj = JSON.parse(values);
+    var html = JSON.stringify(obj, null, 2);
+    
+    document.payload = obj;
+    document.querySelector("#amount").value = obj.advisorAmount;
+    document.querySelector("pre").innerHTML = syntaxHighlight(html);
 }
 
 function syntaxHighlight(json) {
@@ -27,4 +28,34 @@ function syntaxHighlight(json) {
         }
         return '<span class="' + cls + '">' + match + '</span>';
     });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelector("#confirm").addEventListener("click", function () {
+        Interaction(true);
+    });
+
+    document.querySelector("#cancel").addEventListener("click", function () {
+        Interaction(false);
+    });
+
+    UpdateValues(JSON.stringify({
+        teste: "info", 
+        ok: true,
+        version: 10,
+        advisorAmount: 25,
+        assetId: 514,
+        negotiationPeriodId: 1248
+    }));
+});
+
+function Interaction(state) {
+    var data = {
+        assetId: document.payload.assetId,
+        negotiationPeriodId: document.payload.negotiationPeriodId,
+        amount: parseInt(document.querySelector("#amount").value)
+    };
+
+    document.location = "app://?state=" + state + "&edited=true&data=" + data;
 }

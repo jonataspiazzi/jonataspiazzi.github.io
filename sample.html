@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="app.js"></script>
 		<style>
-			pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
-			.string { color: green; }
-			.number { color: darkorange; }
+			pre {outline: 1px solid #ccc; padding: 5px; margin: 10px; }
+			.string { color: darkred; }
+			.number { color: darkmagenta; }
 			.boolean { color: blue; }
-			.null { color: magenta; }
-			.key { color: red; }
+			.null { color: blue; }
+			.key { color: black; }
+			input { margin: 10px; margin-right: 0; margin-top: 0; padding: 6px 18px; }
+			input[type=number] { padding: 6px; }
 		</style>
 	</head>
 	<body>
+		<pre></pre>
+		<div>
+			<input type="number" value="" id="amount" step="1" />
+		</div>
+		<div>
+			<input type="button" value="Confirmar" id="confirm" /><input type="button" value="Cancelar" id="cancel" />
+		</div>
 	</body>
 </html>
