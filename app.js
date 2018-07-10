@@ -39,6 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#cancel").addEventListener("click", function () {
         Interaction(false);
     });
+
+    //UpdateValues(JSON.stringify({
+    //    teste: "info", 
+    //    ok: true,
+    //    version: 10,
+    //    advisorAmount: 25,
+    //    assetId: 514,
+    //    negotiationPeriodId: 1248
+    //}));
 });
 
 function Interaction(state) {
@@ -48,5 +57,5 @@ function Interaction(state) {
         amount: parseInt(document.querySelector("#amount").value)
     };
 
-    document.location = "app://?state=" + state + "&edited=true&data=" + data;
+    document.location = "app://?state=" + state + "&edited=true&data=" + JSON.stringify(data);
 }
