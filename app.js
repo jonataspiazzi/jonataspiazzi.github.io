@@ -33,11 +33,11 @@ function syntaxHighlight(json) {
 document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector("#confirm").addEventListener("click", function () {
-        Interaction(true);
+        Interaction('approved');
     });
 
     document.querySelector("#cancel").addEventListener("click", function () {
-        Interaction(false);
+        Interaction('refused');
     });
 
     //UpdateValues(JSON.stringify({
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //    negotiationPeriodId: 1248
     //}));
 
-    document.querySelector("#version").innerHTML = "1.0.5";
+    document.querySelector("#version").innerHTML = "1.0.6";
 });
 
 function Interaction(state) {
