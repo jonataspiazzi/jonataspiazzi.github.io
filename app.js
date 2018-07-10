@@ -4,11 +4,11 @@ function Interaction(state) {
         negotiationPeriodId: document.payload.negotiationPeriodId,
         amount: parseInt(document.querySelector("#amount").value),
         productAgreement: {
-            agreementId: 0,
+            agreementId: document.payload.productAgreement.agreementId,
             assigned: true
         },
         generalAgreement: {
-            agreementId: 0,
+            agreementId: document.payload.generalAgreement.agreementId,
             assigned: true
         }
     };
@@ -63,5 +63,5 @@ document.addEventListener("DOMContentLoaded", () => {
     //    negotiationPeriodId: 1248
     //}));
 
-    document.querySelector("#version").innerHTML = "1.0.8";
+    document.querySelector("#version").innerHTML = "1.0.9";
 });
