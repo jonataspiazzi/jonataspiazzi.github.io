@@ -1,5 +1,19 @@
-function Interaction() {
-	document.location = "app://?state='refused";
+function Interaction(state) {
+    var data = {
+        assetId: document.payload.assetId,
+        negotiationPeriodId: document.payload.negotiationPeriodId,
+        amount: parseInt(document.querySelector("#amount").value),
+        productAgreement: {
+            agreementId: 0,
+            assigned: true
+        },
+        generalAgreement: {
+            agreementId: 0,
+            assigned: true
+        }
+    };
+
+    document.location = "app://?state=" + state + "&edited=true&data=" + JSON.stringify(data);
 }
 
 function UpdateValues(values) {
@@ -51,13 +65,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector("#version").innerHTML = "1.0.6";
 });
-
-function Interaction(state) {
-    var data = {
-        assetId: document.payload.assetId,
-        negotiationPeriodId: document.payload.negotiationPeriodId,
-        amount: parseInt(document.querySelector("#amount").value)
-    };
-
-    document.location = "app://?state=" + state + "&edited=true&data=" + JSON.stringify(data);
-}
