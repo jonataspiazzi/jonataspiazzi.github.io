@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //    assetId: 514,
     //    negotiationPeriodId: 1248
     //}));
+
+    document.querySelector("#version").innerHTML = "1.0.5";
 });
 
 function Interaction(state) {
