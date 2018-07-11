@@ -16,7 +16,7 @@ function QualquerNome(state) {
     };
     */
 
-    document.location = 'app://?state=\'approved\'&edited=true&data=\'{"assetId":10,"negotiationPeriodId":11,"amount":5,"productAgreement":{"agreementId":22,"assigned":false},"generalAgreement":{"agreementId":23,"assigned":false}}\'';
+    document.location = 'app://?state=approved&edited=true&data={"assetId":10,"negotiationPeriodId":11,"amount":5,"productAgreement":{"agreementId":22,"assigned":false},"generalAgreement":{"agreementId":23,"assigned":false}}';
     //document.location = "app://?state=" + state + "&edited=true&data=" + JSON.stringify(data);
 }
 
