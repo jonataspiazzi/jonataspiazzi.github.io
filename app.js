@@ -67,5 +67,5 @@ document.addEventListener("DOMContentLoaded", () => {
     //    negotiationPeriodId: 1248
     //}));
 
-    document.querySelector("#version").innerHTML = "1.0.11";
+    document.querySelector("#version").innerHTML = "1.0.12";
 });
