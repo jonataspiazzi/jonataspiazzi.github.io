@@ -1,6 +1,5 @@
 
-function QualquerNome(state) {
-    /*
+function Envio(state) {
     var data = {
         assetId: document.payload.assetId,
         negotiationPeriodId: document.payload.negotiationPeriodId,
@@ -14,10 +13,8 @@ function QualquerNome(state) {
             assigned: true
         }
     };
-    */
 
-    document.location = 'app://?state=approved&edited=true&data={"assetId":10,"negotiationPeriodId":11,"amount":5,"productAgreement":{"agreementId":22,"assigned":false},"generalAgreement":{"agreementId":23,"assigned":false}}';
-    //document.location = "app://?state=" + state + "&edited=true&data=" + JSON.stringify(data);
+    document.location = "app://?state=" + state + "&edited=true&data=" + JSON.stringify(data);
 }
 
 function UpdateValues(values) {
@@ -51,11 +48,11 @@ function syntaxHighlight(json) {
 document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector("#confirm").addEventListener("click", function () {
-        QualquerNome('approved');
+        Envio('approved');
     });
 
     document.querySelector("#cancel").addEventListener("click", function () {
-        QualquerNome('refused');
+        Envio('refused');
     });
 
     //UpdateValues(JSON.stringify({
@@ -67,5 +64,5 @@ document.addEventListener("DOMContentLoaded", () => {
     //    negotiationPeriodId: 1248
     //}));
 
-    document.querySelector("#version").innerHTML = "1.0.12";
+    document.querySelector("#version").innerHTML = "1.0.13";
 });
