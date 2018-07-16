@@ -1,6 +1,7 @@
 
 function Envio(state) {
     var data = {
+        messageId: document.payload.messageId,
         assetId: document.payload.assetId,
         negotiationPeriodId: document.payload.negotiationPeriodId,
         amount: parseInt(document.querySelector("#amount").value),
